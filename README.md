@@ -12,19 +12,14 @@ A task-oriented dialogue system that recommends Philadelphia restaurants through
 
 ## System Architecture
 
-User Input
-↓
-NLU Pipeline (ModernBERT)
-├── Intent Classification (find_restaurant / accept / reject)
-└── Slot Filling (cuisine, location, price, dietary, ambience...)
-↓
-Dialogue State Tracker (DST)
-└── Tracks filled slots, computes completeness score
-↓
-Dialogue Manager
-├── Filter Knowledge Graph by constraints
-├── Ask clarifying questions if completeness < 40%
-└── Recommend top-3 restaurants when ready
+1. **User Input** → NLU Pipeline (ModernBERT)
+   - Intent Classification: `find_restaurant` / `accept` / `reject`
+   - Slot Filling: cuisine, location, price, dietary, ambience...
+2. **Dialogue State Tracker (DST)** → tracks filled slots, computes completeness score
+3. **Dialogue Manager**
+   - Filters Knowledge Graph by constraints
+   - Asks clarifying questions if completeness < 40%
+   - Recommends top-3 restaurants when ready
 
 ## Key Features
 
